@@ -1,0 +1,886 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+	<head>
+	    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+	    <title>Server HTTP</title>
+	    <link rel="stylesheet" type="text/css" href="datatables/datatables.min.css">
+
+        <script type="text/javascript" src="datatables/datatables.min.js"></script>
+
+        <script type="text/javascript" charset="utf-8">
+			jQuery(document).ready(function() {
+				jQuery('.data_table').DataTable({
+				    // Disable initial sort
+				    "aaSorting": []
+				});
+			} );
+		</script>
+
+		<script type="text/javascript">
+            jQuery(function() {
+
+              // We can attach the `fileselect` event to all file inputs on the page
+              jQuery(document).on('change', ':file', function() {
+                var input = jQuery(this),
+                    numFiles = input.get(0).files ? input.get(0).files.length : 1,
+                    label = input.val().replace(/\\/g, '/').replace(/.*\//, '');
+                input.trigger('fileselect', [numFiles, label]);
+              });
+
+              // We can watch for our custom `fileselect` event like this
+              jQuery(document).ready( function() {
+                  jQuery(':file').on('fileselect', function(event, numFiles, label) {
+
+                      var input = jQuery(this).parents('.input-group').find(':text'),
+                          log = numFiles > 1 ? numFiles + ' files selected' : label;
+
+                      if( input.length ) {
+                          input.val(log);
+                      } else {
+                          if( log ) alert(log);
+                      }
+
+                  });
+              });
+
+            });
+        </script>
+
+        <script type="text/javascript">
+            jQuery(document).ready(function(){
+                jQuery(".nav-tabs a").click(function(){
+                    jQuery(this).tab('show');
+                });
+            });
+        </script>
+
+	</head>
+
+	<body>
+
+        <div class="container" style="margin-top: 20px; margin-left: 120px;">
+            <h1> <a href="/">Open your *.xls and *.xlsx files here!</a> </h1>
+        </div>
+
+	    <form enctype="multipart/form-data" action="/" method="post">
+            <div class="container" style="margin-top: 20px; margin-left: 40px;">
+                <div class="row">
+                    <div class="col-lg-6 col-sm-6 col-12">
+                        <h4>Search file</h4>
+                        <div class="input-group">
+                            <label class="input-group-btn">
+                                <span class="btn btn-primary">
+                                    Browse&hellip; <input type="file" name="userfile" style="display: none;">
+                                </span>
+                            </label>
+                            <input type="text" class="form-control" readonly="readonly">
+                        </div>
+                        <span class="help-block">
+                            Please enter a file with one of the following extentions: *.xls or *.xlsx
+                        </span>
+                        <p><input class="btn btn-primary" type="submit" value="Upload"></p>
+                    </div>
+                </div>
+            </div>
+
+        </form>
+
+        <div class="container" style="margin-top: 20px; margin-left: 40px;">
+            <ul class="nav nav-tabs">
+                <li class="active"><a href="#c4">C4</a></li>
+                
+            </ul>
+            <div class="tab-content">
+                <div id="c4" class="tab-pane fade in active">
+                    <table class="display data_table table table-hover">
+                        <thead>
+                            <tr>
+                                <th>ORAR</th><th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                                            <td>Facultatea: AUTOMATICA SI CALCULATOARE</td>
+	                            <td></td>
+	                            <td></td>
+	                            <td></td>
+	                            <td></td>
+	                            <td></td>
+	                            <td></td>
+	                            <td></td>
+	                            <td></td>
+	
+                            </tr>
+			                <tr>
+                                                            <td>Specializarea: CALCULATOARE</td>
+	                            <td></td>
+	                            <td></td>
+	                            <td></td>
+	                            <td></td>
+	                            <td></td>
+	                            <td></td>
+	                            <td></td>
+	                            <td></td>
+	
+                            </tr>
+			                <tr>
+                                                            <td>Anul de studii:  IV  Seria C4</td>
+	                            <td></td>
+	                            <td></td>
+	                            <td></td>
+	                            <td></td>
+	                            <td></td>
+	                            <td></td>
+	                            <td></td>
+	                            <td></td>
+	
+                            </tr>
+			                <tr>
+                                                            <td>Forma de învăţământ: INGINERI ZI                                               Semestrul I                             Anul universitar 2016 - 2017</td>
+	                            <td></td>
+	                            <td></td>
+	                            <td></td>
+	                            <td></td>
+	                            <td></td>
+	                            <td></td>
+	                            <td></td>
+	                            <td></td>
+	
+                            </tr>
+			                <tr>
+                                                            <td>ZIUA</td>
+	                            <td>ORA</td>
+	                            <td>341 C4</td>
+	                            <td></td>
+	                            <td>342 C4</td>
+	                            <td></td>
+	                            <td>343 C4</td>
+	                            <td></td>
+	                            <td>Opţional 1</td>
+	
+                            </tr>
+			                <tr>
+                                                            <td></td>
+	                            <td></td>
+	                            <td>Disciplina/sală</td>
+	                            <td></td>
+	                            <td>Disciplina/sală</td>
+	                            <td></td>
+	                            <td>Disciplina/sală</td>
+	                            <td></td>
+	                            <td>Disciplina/sală</td>
+	
+                            </tr>
+			                <tr>
+                                                            <td></td>
+	                            <td>08-10</td>
+	                            <td></td>
+	                            <td></td>
+	                            <td></td>
+	                            <td></td>
+	                            <td>IA (l)</td>
+	                            <td>IOC (l)</td>
+	                            <td></td>
+	
+                            </tr>
+			                <tr>
+                                                            <td></td>
+	                            <td></td>
+	                            <td></td>
+	                            <td></td>
+	                            <td></td>
+	                            <td></td>
+	                            <td>EG 404</td>
+	                            <td>EG 405</td>
+	                            <td></td>
+	
+                            </tr>
+			                <tr>
+                                                            <td></td>
+	                            <td>10-12</td>
+	                            <td></td>
+	                            <td></td>
+	                            <td>AII (l)</td>
+	                            <td>SPG (l)</td>
+	                            <td>IOC (l)</td>
+	                            <td>IA (l)</td>
+	                            <td>AII (l)</td>
+	
+                            </tr>
+			                <tr>
+                                                            <td></td>
+	                            <td></td>
+	                            <td></td>
+	                            <td></td>
+	                            <td>EG 206</td>
+	                            <td>EG 304</td>
+	                            <td>EG 405</td>
+	                            <td>EG 404</td>
+	                            <td>EG 206</td>
+	
+                            </tr>
+			                <tr>
+                                                            <td>L</td>
+	                            <td>12-14</td>
+	                            <td>IA (l)</td>
+	                            <td>SPG (l)</td>
+	                            <td>IOC (l)</td>
+	                            <td></td>
+	                            <td>MP (s) BN212a</td>
+	                            <td></td>
+	                            <td></td>
+	
+                            </tr>
+			                <tr>
+                                                            <td>U</td>
+	                            <td></td>
+	                            <td>EG 404</td>
+	                            <td>EG 304</td>
+	                            <td>EG 405</td>
+	                            <td></td>
+	                            <td>BM (s) BN212a</td>
+	                            <td></td>
+	                            <td></td>
+	
+                            </tr>
+			                <tr>
+                                                            <td>N</td>
+	                            <td>14-16</td>
+	                            <td>SPG (l)</td>
+	                            <td>IA (l)</td>
+	                            <td>MP (s) BN212a</td>
+	                            <td></td>
+	                            <td></td>
+	                            <td></td>
+	                            <td></td>
+	
+                            </tr>
+			                <tr>
+                                                            <td>I</td>
+	                            <td></td>
+	                            <td>EG 304</td>
+	                            <td>EG 404</td>
+	                            <td>BM (s) BN212a</td>
+	                            <td></td>
+	                            <td></td>
+	                            <td></td>
+	                            <td></td>
+	
+                            </tr>
+			                <tr>
+                                                            <td></td>
+	                            <td>16-19</td>
+	                            <td>AII (Aplicatii Integrate pentru Intreprinderi) (curs)  PR 002, Ș.L. O. CHOUDARY</td>
+	                            <td></td>
+	                            <td></td>
+	                            <td></td>
+	                            <td></td>
+	                            <td></td>
+	                            <td></td>
+	
+                            </tr>
+			                <tr>
+                                                            <td></td>
+	                            <td>19-20</td>
+	                            <td></td>
+	                            <td></td>
+	                            <td></td>
+	                            <td></td>
+	                            <td></td>
+	                            <td></td>
+	                            <td></td>
+	
+                            </tr>
+			                <tr>
+                                                            <td></td>
+	                            <td>8-10</td>
+	                            <td></td>
+	                            <td></td>
+	                            <td></td>
+	                            <td></td>
+	                            <td></td>
+	                            <td></td>
+	                            <td></td>
+	
+                            </tr>
+			                <tr>
+                                                            <td></td>
+	                            <td>10-12</td>
+	                            <td></td>
+	                            <td></td>
+	                            <td></td>
+	                            <td></td>
+	                            <td></td>
+	                            <td></td>
+	                            <td></td>
+	
+                            </tr>
+			                <tr>
+                                                            <td>M</td>
+	                            <td></td>
+	                            <td></td>
+	                            <td></td>
+	                            <td></td>
+	                            <td></td>
+	                            <td></td>
+	                            <td></td>
+	                            <td></td>
+	
+                            </tr>
+			                <tr>
+                                                            <td>A</td>
+	                            <td>12-15</td>
+	                            <td>SPG (Sisteme de Prelucrare Grafica) (curs) PR 002, Prof. Florica MOLDOVEANU</td>
+	                            <td></td>
+	                            <td></td>
+	                            <td></td>
+	                            <td></td>
+	                            <td></td>
+	                            <td></td>
+	
+                            </tr>
+			                <tr>
+                                                            <td>R</td>
+	                            <td></td>
+	                            <td></td>
+	                            <td></td>
+	                            <td></td>
+	                            <td></td>
+	                            <td></td>
+	                            <td></td>
+	                            <td></td>
+	
+                            </tr>
+			                <tr>
+                                                            <td>T</td>
+	                            <td></td>
+	                            <td></td>
+	                            <td></td>
+	                            <td></td>
+	                            <td></td>
+	                            <td></td>
+	                            <td></td>
+	                            <td></td>
+	
+                            </tr>
+			                <tr>
+                                                            <td>I</td>
+	                            <td>15-16</td>
+	                            <td></td>
+	                            <td></td>
+	                            <td></td>
+	                            <td></td>
+	                            <td></td>
+	                            <td></td>
+	                            <td></td>
+	
+                            </tr>
+			                <tr>
+                                                            <td></td>
+	                            <td>16-18</td>
+	                            <td></td>
+	                            <td></td>
+	                            <td></td>
+	                            <td></td>
+	                            <td></td>
+	                            <td></td>
+	                            <td>IOC (l)</td>
+	
+                            </tr>
+			                <tr>
+                                                            <td></td>
+	                            <td></td>
+	                            <td></td>
+	                            <td></td>
+	                            <td></td>
+	                            <td></td>
+	                            <td></td>
+	                            <td></td>
+	                            <td>EG 405</td>
+	
+                            </tr>
+			                <tr>
+                                                            <td></td>
+	                            <td>18-20</td>
+	                            <td></td>
+	                            <td></td>
+	                            <td></td>
+	                            <td>IOC (l)</td>
+	                            <td></td>
+	                            <td></td>
+	                            <td></td>
+	
+                            </tr>
+			                <tr>
+                                                            <td></td>
+	                            <td></td>
+	                            <td></td>
+	                            <td></td>
+	                            <td></td>
+	                            <td>EG 405</td>
+	                            <td></td>
+	                            <td></td>
+	                            <td></td>
+	
+                            </tr>
+			                <tr>
+                                                            <td></td>
+	                            <td>8-10</td>
+	                            <td></td>
+	                            <td></td>
+	                            <td></td>
+	                            <td></td>
+	                            <td></td>
+	                            <td></td>
+	                            <td></td>
+	
+                            </tr>
+			                <tr>
+                                                            <td>M</td>
+	                            <td>10-11</td>
+	                            <td></td>
+	                            <td></td>
+	                            <td></td>
+	                            <td></td>
+	                            <td></td>
+	                            <td></td>
+	                            <td></td>
+	
+                            </tr>
+			                <tr>
+                                                            <td>I</td>
+	                            <td>11-14</td>
+	                            <td>IOC (Interfata Om Calculator) (curs) PR 002, Prof. St. TRAUSAN  MATU</td>
+	                            <td></td>
+	                            <td></td>
+	                            <td></td>
+	                            <td></td>
+	                            <td></td>
+	                            <td></td>
+	
+                            </tr>
+			                <tr>
+                                                            <td>E</td>
+	                            <td></td>
+	                            <td></td>
+	                            <td></td>
+	                            <td></td>
+	                            <td></td>
+	                            <td></td>
+	                            <td></td>
+	                            <td></td>
+	
+                            </tr>
+			                <tr>
+                                                            <td>R</td>
+	                            <td></td>
+	                            <td></td>
+	                            <td></td>
+	                            <td></td>
+	                            <td></td>
+	                            <td></td>
+	                            <td></td>
+	                            <td></td>
+	
+                            </tr>
+			                <tr>
+                                                            <td>C</td>
+	                            <td>14-17</td>
+	                            <td>IA (Inteligenta Artificiala) (curs) EC 004, Prof. Adina FLOREA</td>
+	                            <td></td>
+	                            <td></td>
+	                            <td></td>
+	                            <td></td>
+	                            <td></td>
+	                            <td></td>
+	
+                            </tr>
+			                <tr>
+                                                            <td>U</td>
+	                            <td></td>
+	                            <td></td>
+	                            <td></td>
+	                            <td></td>
+	                            <td></td>
+	                            <td></td>
+	                            <td></td>
+	                            <td></td>
+	
+                            </tr>
+			                <tr>
+                                                            <td>R</td>
+	                            <td></td>
+	                            <td></td>
+	                            <td></td>
+	                            <td></td>
+	                            <td></td>
+	                            <td></td>
+	                            <td></td>
+	                            <td></td>
+	
+                            </tr>
+			                <tr>
+                                                            <td>I</td>
+	                            <td>17-18</td>
+	                            <td></td>
+	                            <td></td>
+	                            <td></td>
+	                            <td></td>
+	                            <td></td>
+	                            <td></td>
+	                            <td></td>
+	
+                            </tr>
+			                <tr>
+                                                            <td></td>
+	                            <td>18-20</td>
+	                            <td>MP (s) AN 212a</td>
+	                            <td></td>
+	                            <td></td>
+	                            <td></td>
+	                            <td></td>
+	                            <td>AII (l)</td>
+	                            <td></td>
+	
+                            </tr>
+			                <tr>
+                                                            <td></td>
+	                            <td></td>
+	                            <td>BM (s) AN 212a</td>
+	                            <td></td>
+	                            <td></td>
+	                            <td></td>
+	                            <td></td>
+	                            <td>EG 206</td>
+	                            <td></td>
+	
+                            </tr>
+			                <tr>
+                                                            <td></td>
+	                            <td>08-10</td>
+	                            <td>AII (l)</td>
+	                            <td></td>
+	                            <td></td>
+	                            <td>AII (l)</td>
+	                            <td></td>
+	                            <td></td>
+	                            <td></td>
+	
+                            </tr>
+			                <tr>
+                                                            <td></td>
+	                            <td></td>
+	                            <td>EG 206</td>
+	                            <td></td>
+	                            <td></td>
+	                            <td>EG 206</td>
+	                            <td></td>
+	                            <td></td>
+	                            <td></td>
+	
+                            </tr>
+			                <tr>
+                                                            <td></td>
+	                            <td>10-12</td>
+	                            <td>IOC (l)</td>
+	                            <td>AII (l)</td>
+	                            <td></td>
+	                            <td></td>
+	                            <td></td>
+	                            <td></td>
+	                            <td></td>
+	
+                            </tr>
+			                <tr>
+                                                            <td></td>
+	                            <td></td>
+	                            <td>EG 405</td>
+	                            <td>EG 206</td>
+	                            <td></td>
+	                            <td></td>
+	                            <td></td>
+	                            <td></td>
+	                            <td></td>
+	
+                            </tr>
+			                <tr>
+                                                            <td></td>
+	                            <td>12-14</td>
+	                            <td></td>
+	                            <td>IOC (l)</td>
+	                            <td></td>
+	                            <td></td>
+	                            <td></td>
+	                            <td></td>
+	                            <td></td>
+	
+                            </tr>
+			                <tr>
+                                                            <td>J</td>
+	                            <td></td>
+	                            <td></td>
+	                            <td>EG 405</td>
+	                            <td></td>
+	                            <td></td>
+	                            <td></td>
+	                            <td></td>
+	                            <td></td>
+	
+                            </tr>
+			                <tr>
+                                                            <td>O</td>
+	                            <td>14-16</td>
+	                            <td></td>
+	                            <td></td>
+	                            <td></td>
+	                            <td></td>
+	                            <td></td>
+	                            <td></td>
+	                            <td></td>
+	
+                            </tr>
+			                <tr>
+                                                            <td>I</td>
+	                            <td></td>
+	                            <td></td>
+	                            <td></td>
+	                            <td></td>
+	                            <td></td>
+	                            <td></td>
+	                            <td></td>
+	                            <td></td>
+	
+                            </tr>
+			                <tr>
+                                                            <td></td>
+	                            <td>16-18</td>
+	                            <td></td>
+	                            <td></td>
+	                            <td></td>
+	                            <td></td>
+	                            <td></td>
+	                            <td></td>
+	                            <td>IA (l)</td>
+	
+                            </tr>
+			                <tr>
+                                                            <td></td>
+	                            <td></td>
+	                            <td></td>
+	                            <td></td>
+	                            <td></td>
+	                            <td></td>
+	                            <td></td>
+	                            <td></td>
+	                            <td>EG 404</td>
+	
+                            </tr>
+			                <tr>
+                                                            <td></td>
+	                            <td>18-20</td>
+	                            <td></td>
+	                            <td></td>
+	                            <td></td>
+	                            <td></td>
+	                            <td></td>
+	                            <td></td>
+	                            <td></td>
+	
+                            </tr>
+			                <tr>
+                                                            <td></td>
+	                            <td>08-10</td>
+	                            <td>MP (curs) AN 034</td>
+	                            <td></td>
+	                            <td></td>
+	                            <td></td>
+	                            <td></td>
+	                            <td></td>
+	                            <td></td>
+	
+                            </tr>
+			                <tr>
+                                                            <td>V</td>
+	                            <td>10-12</td>
+	                            <td>MP (curs) AN 034</td>
+	                            <td></td>
+	                            <td></td>
+	                            <td></td>
+	                            <td></td>
+	                            <td>SPG (l)</td>
+	                            <td>SPG (l)</td>
+	
+                            </tr>
+			                <tr>
+                                                            <td>I</td>
+	                            <td></td>
+	                            <td>BM (curs) AN 034</td>
+	                            <td></td>
+	                            <td></td>
+	                            <td></td>
+	                            <td></td>
+	                            <td>EG 304</td>
+	                            <td>EG 304</td>
+	
+                            </tr>
+			                <tr>
+                                                            <td>N</td>
+	                            <td>12-14</td>
+	                            <td></td>
+	                            <td></td>
+	                            <td>SPG (l)</td>
+	                            <td>IA (l)</td>
+	                            <td>AII (l)</td>
+	                            <td></td>
+	                            <td></td>
+	
+                            </tr>
+			                <tr>
+                                                            <td>E</td>
+	                            <td></td>
+	                            <td></td>
+	                            <td></td>
+	                            <td>EG 304</td>
+	                            <td>EG 404</td>
+	                            <td>EG 206</td>
+	                            <td></td>
+	                            <td></td>
+	
+                            </tr>
+			                <tr>
+                                                            <td>R</td>
+	                            <td>14-16</td>
+	                            <td></td>
+	                            <td></td>
+	                            <td>IA (l)</td>
+	                            <td></td>
+	                            <td>SPG (l)</td>
+	                            <td></td>
+	                            <td></td>
+	
+                            </tr>
+			                <tr>
+                                                            <td>I</td>
+	                            <td></td>
+	                            <td></td>
+	                            <td></td>
+	                            <td>EG 404</td>
+	                            <td></td>
+	                            <td>EG 304</td>
+	                            <td></td>
+	                            <td></td>
+	
+                            </tr>
+			                <tr>
+                                                            <td></td>
+	                            <td>16-18</td>
+	                            <td></td>
+	                            <td></td>
+	                            <td></td>
+	                            <td></td>
+	                            <td></td>
+	                            <td></td>
+	                            <td></td>
+	
+                            </tr>
+			                <tr>
+                                                            <td></td>
+	                            <td>18-20</td>
+	                            <td></td>
+	                            <td></td>
+	                            <td></td>
+	                            <td></td>
+	                            <td></td>
+	                            <td></td>
+	                            <td></td>
+	
+                            </tr>
+			                <tr>
+                                                            <td>Nota:</td>
+	                            <td></td>
+	                            <td>MP - Managementul Proiectelor; BM - Bazele Managementului</td>
+	                            <td></td>
+	                            <td></td>
+	                            <td></td>
+	                            <td></td>
+	                            <td></td>
+	                            <td></td>
+	
+                            </tr>
+			                <tr>
+                                                            <td></td>
+	                            <td></td>
+	                            <td>Cursurile de MP/BM se tin de catre prof. Doina Serban (cursurile din 7 octombrie se tin in PRECIS 106)</td>
+	                            <td></td>
+	                            <td></td>
+	                            <td></td>
+	                            <td></td>
+	                            <td></td>
+	                            <td></td>
+	
+                            </tr>
+			                <tr>
+                                                            <td>Intocmit :   </td>
+	                            <td></td>
+	                            <td>Conf. C. Popescu </td>
+	                            <td></td>
+	                            <td></td>
+	                            <td></td>
+	                            <td></td>
+	                            <td></td>
+	                            <td></td>
+	
+                            </tr>
+			                <tr>
+                                                            <td>Departament:</td>
+	                            <td></td>
+	                            <td>Calculatoare</td>
+	                            <td></td>
+	                            <td></td>
+	                            <td></td>
+	                            <td></td>
+	                            <td></td>
+	                            <td></td>
+	
+                            </tr>
+			                <tr>
+                                                            <td>Coordonator:</td>
+	                            <td></td>
+	                            <td>Conf. C. Popescu </td>
+	                            <td></td>
+	                            <td>DECAN,</td>
+	                            <td></td>
+	                            <td></td>
+	                            <td></td>
+	                            <td></td>
+	
+                            </tr>
+			                <tr>
+                                                            <td></td>
+	                            <td></td>
+	                            <td>(cornel.popescu@cs.pub.ro)</td>
+	                            <td></td>
+	                            <td>Prof. Dr. Ing. Adina-Magda FLOREA</td>
+	                            <td></td>
+	                            <td></td>
+	                            <td></td>
+	                            <td></td>
+	
+                            </tr>
+			            </tbody>
+                    </table>
+                </div>
+				
+            </div>
+        </div>
+
+        <script type="text/javascript">
+	        // For demo to fit into DataTables site builder...
+	        jQuery('.data_table')
+		    .removeClass( 'display' )
+		    .addClass('table table-striped table-bordered');
+        </script>
+	</body>
+
+</html>
